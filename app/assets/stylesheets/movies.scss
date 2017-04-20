@@ -1,0 +1,39 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#movie_listing{
+  width: 100%;
+  thead{
+  background: #000000;
+    tr{
+      th{
+        padding: 10px;
+        color: #ffffff;
+        font-family: helveticanue;
+        font-size: 16px;
+        font-weight: 200;
+      }
+    }
+  }
+  tbody{
+    background: #ffffff;
+    tr{
+      border-bottom: 1px solid #CCCCCC;
+      td{
+        padding: 10px;
+        color: #000000;
+        font-family: helveticanue;
+        font-size: 14px;
+        font-weight: bold;
+        a{
+          &:hover{
+            background: transparent;
+            text-decoration: none;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+}
