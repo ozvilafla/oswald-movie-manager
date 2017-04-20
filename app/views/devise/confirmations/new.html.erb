@@ -1,0 +1,32 @@
+<div class="lg-container">
+  <h1>Resend confirmation instructions</h1>
+
+  <div class="login-container">
+
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder: "Email" %>
+
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit "Resend confirmation instructions",class: "btn btn-primary" %>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "pull-left other-links" %>
+          <% end -%>
+
+          <%- if controller_name != 'sessions' %>
+              <%= link_to "Log in", new_session_path(resource_name), class: "pull-right other-links" %>
+          <% end -%>
+
+
+        </div>
+
+
+    <% end %>
+
+  </div>
+
+</div>

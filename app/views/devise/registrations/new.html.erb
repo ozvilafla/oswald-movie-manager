@@ -1,0 +1,28 @@
+<div class="lg-container">
+  <h1>SIGN UP</h1>
+  <div class="login-container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"%>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off",class: "form-control",placeholder: "Password" %>
+        <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off" ,class: "form-control",placeholder: "Confirm Password" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "SIGN UP",class: "btn btn-primary" %>
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "pull-left other-links" %>
+        <% end -%>
+        <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(resource_name) , class: "pull-right other-links"%>
+        <% end -%>
+      </div>
+    <% end %>
+  </div>
+</div>

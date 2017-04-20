@@ -1,0 +1,41 @@
+<div class="lg-container">
+  <h1>SIGN IN</h1>
+  <div class="login-container">
+    <% if flash[:alert] %>
+      <div id="alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"%>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "off",class: "form-control",placeholder: "Password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "Log in",class: "btn btn-primary" %>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "pull-left other-links" %>
+          <% end -%>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Sign Up", new_registration_path(resource_name), class: "pull-right other-links" %>
+          <% end -%>
+        </div>
+
+    <% end %>
+
+  </div>
+
+</div>

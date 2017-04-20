@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OswaldMovieManager</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+  <% if user_signed_in? %>
+  <nav>
+    <ul>
+      <li><%= link_to('HOME','/') %></li>
+      <li><%= link_to('MOVIES', movies_path) %></li>
+      <li>
+            <%= link_to('LOGOUT', destroy_user_session_path, :method => :delete) %>
+
+      </li>
+    </ul>
+  </nav>
+  <% end %>
+    <%= yield %>
+  <footer>
+    <div class="footer">
+      <% if user_signed_in? %>
+            <ul>
+              <li><%= link_to('HOME','/') %></li>
+              <li><%= link_to('MOVIES', movies_path) %></li>
+              <li>
+                <%= link_to('LOGOUT', destroy_user_session_path, :method => :delete) %>
+
+              </li>
+            </ul>
+      <% end %>
+      <a>@ 2017 All Rights reserved</a>
+    </div>
+
+  </footer>
+  </body>
+</html>
