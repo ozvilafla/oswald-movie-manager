@@ -1,0 +1,9 @@
+config/application.yml
+.idea*
+log/*
+.keep
+tmp/*
+vendor/assets/javascripts/.keep
+vendor/assets/stylesheets/.keep
+db/development.sqlite3
+db/test.sqlite3
