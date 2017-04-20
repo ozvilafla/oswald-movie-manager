@@ -1,0 +1,29 @@
+<div class="list-container">
+  <div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+<h1>Movies</h1>
+
+<table id="movie_listing" class="dataTable">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Format</th>
+    <th>Length hour</th>
+    <th>Length minute</th>
+    <th>Release year</th>
+    <th>Rating</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% movies.each do |movie| %>
+    <%= render 'movies/row', movie: movie %>
+  <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>

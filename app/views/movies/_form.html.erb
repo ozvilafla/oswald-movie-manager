@@ -1,0 +1,76 @@
+<div class="list-container">
+  <div class="container">
+    <h1> Create your movie list</h1>
+    <%= form_for(movie, remote: true) do |f| %>
+        <% if movie.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+              <ul>
+                <% movie.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title,class: "form-control" %>
+    </div>
+
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= f.label :m_format %>
+      <%= f.select :m_format, %w(VHS DVD Streaming), :prompt => 'Select format' %>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="form-group">
+      <%= f.label :length_hours, "Length" %>
+      <%= f.text_field :length_hours,class: "form-control-1 margin-rt", placeholder: "Hours" %>
+      <%= f.text_field :length_minutes,class: "form-control-1", placeholder: "Minutes"%>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= f.label :release_year %>
+      <%= f.number_field :release_year,class: "form-control" %>
+    </div>
+  </div>
+<div class="col-lg-12">
+  <%= f.label :rating %>
+  <div class="radio radio-info radio-inline">
+    <%= f.radio_button :rating, 1, class: '' %>
+    <%= f.label :rating, 1, class: '',for:"movie_rating_1" %>
+  </div>
+  <div class="radio radio-info radio-inline">
+    <%= f.radio_button :rating, 2, class: '' %>
+    <%= f.label :rating, 2, class: '',for:"movie_rating_2"  %>
+  </div>
+  <div class="radio radio-info radio-inline">
+    <%= f.radio_button :rating, 3, class: '' %>
+    <%= f.label :rating, 3, class: '',for:"movie_rating_3"  %>
+  </div>
+  <div class="radio radio-info radio-inline">
+    <%= f.radio_button :rating, 4, class: '' %>
+    <%= f.label :rating, 4, class: '',for:"movie_rating_4"  %>
+  </div>
+  <div class="radio radio-info radio-inline">
+    <%= f.radio_button :rating, 5, class: '' %>
+    <%= f.label :rating, 5, class: '',for:"movie_rating_5"  %>
+  </div>
+  </div>
+
+</div>
+
+        <div class="actions">
+          <%= f.submit "#{(movie.new_record? ? 'CREATE' : 'UPDATE')} MOVIE",class: "btn btn-primary btn-movie pull-right" %>
+        </div>
+    <% end %>
+
+  </div>
+
+</div>

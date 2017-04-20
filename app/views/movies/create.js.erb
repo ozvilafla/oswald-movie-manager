@@ -1,0 +1,12 @@
+<% if @movie.errors.present? %>
+  alert("<%= @movie.errors.full_messages.join('\n') %>");
+<% else %>
+  $('html, body').animate({
+    scrollTop: $("#movie_listing").offset().top
+  }, 600);
+  $('#movie_listing tbody').prepend('<%= j (render 'movies/row', movie: @movie)  %>');
+
+  setTimeout(function (){
+    window.location = 'movies';
+  }, 1200); // How long do you want the delay to be (in milliseconds)?
+<% end %>

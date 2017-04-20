@@ -1,0 +1,5 @@
+<% if @status %>
+$("#movie-<%= @movie.id %>").hide(1000);
+<% else %>
+alert("Unable to process request.");
+<% end %>
