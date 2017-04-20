@@ -1,0 +1,11 @@
+development:
+  email_username: ''
+  email_password: ''
+
+test:
+  email_username: ''
+  email_password: ''
+
+production:
+  email_username: ''
+  email_password: ''
